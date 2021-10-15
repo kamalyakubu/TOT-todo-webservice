@@ -2,10 +2,12 @@
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import TodoModel from "./schema/todo_schema.js";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 dotenv.config()
 
 const port = 3000;
@@ -73,9 +75,9 @@ app.get("/todos", async (req, res) => {
 
 ///get one todo (:id)
 app.get("/todos/:id", async (req, res) => {
-  const { id } = req.params;
+  const { status } = req.params;
 
-  const todoModel = await TodoModel.findById(id);
+  const todoModel = await TodoModel.find({}).where('status').equals(status);
   if (todoModel) {
     return res.status(200).json({
       status: true,
