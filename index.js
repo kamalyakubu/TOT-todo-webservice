@@ -93,6 +93,7 @@ app.get("/todos/:id", async (req, res) => {
 
 ///create a todo
 app.post("/todo", async (req, res) => {
+  req.headers["Content-Type"] = "application/json"
   const { title, description, date_time } = req.body;
 
   const todoModel = await TodoModel.create({
