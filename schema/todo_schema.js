@@ -12,7 +12,6 @@ const todoSchema = Schema({
   },
   date_time: {
     type: String,
-    required: true,
     default: Date.now(),
   },
   status: {
