@@ -87,7 +87,7 @@ app.get("/todos/:id", async (req, res) => {
 
 ///create a todo
 app.post("/todo", async (req, res) => {
-  const { title, description, date_time } = req.body;
+  const { title, description } = req.body;
 
   const todoModel = await TodoModel.create({
     title,
