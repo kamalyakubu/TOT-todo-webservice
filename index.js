@@ -92,7 +92,7 @@ app.post("/todo", async (req, res) => {
   const todoModel = await TodoModel.create({
     title,
     description,
-    //date_time,
+    
   });
 
   if (todoModel) {
