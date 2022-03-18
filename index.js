@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
@@ -43,11 +42,6 @@ const password = process.env.USER_PASSWORD;
     console.log(err);
   });
 
-//get all todos (completed or not)
-//get one todo
-//create todo
-//patch one todo
-//delete todo
 
 app.get("/", (req, res) => {
   return res.status(200).json({
@@ -93,13 +87,12 @@ app.get("/todos/:id", async (req, res) => {
 
 ///create a todo
 app.post("/todo", async (req, res) => {
-  req.headers["Content-Type"] = "application/json"
   const { title, description, date_time } = req.body;
 
   const todoModel = await TodoModel.create({
     title,
     description,
-    date_time,
+    //date_time,
   });
 
   if (todoModel) {
@@ -160,5 +153,5 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 
 
-//Link to DB
+//Link 
 //https://insect-loan.cyclic-app.com
