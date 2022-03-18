@@ -10,10 +10,11 @@ const todoSchema = Schema({
     type: String,
     required: true,
   },
-  date_time: {
-    type: String,
-    default: Date.now(),
-  },
+  // date_time: {
+  //   type: String,
+  //   required: false,
+  //   default: Date.now(),
+  // },
   status: {
     type: Boolean,
     required: true,
